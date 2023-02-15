@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Preloader</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="loader">
+            <div class="progress-wrap">
+                <div id="progress-bar" class="progress-bar" data-percent="0" style="width: 0%;"></div>
+            </div>
+        </div>
+        <script defer type="text/javascript">
+            function updateProgressBar(duration) {
+                const progressBar = document.getElementById('progress-bar');
+                let percentage = 0;
+                const interval = setInterval(function () {
+                    percentage++;
+                    progressBar.style.width = percentage + '%';
+                    // progressBar.innerText = percentage + '%';
+                    if (percentage >= 100) {
+                        clearInterval(interval);
+                    }
+                }, duration / 100);
+            }
+            updateProgressBar(5000);
+        </script>
+    </body>
+
+</html>
